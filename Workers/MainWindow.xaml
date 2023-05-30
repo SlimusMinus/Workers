@@ -1,0 +1,25 @@
+﻿<Window x:Class="Workers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Workers"
+        mc:Ignorable="d"
+        Title="Payment Work" Height="350" Width="800" FontSize="18">
+    <StackPanel Background="Bisque">
+        <TextBlock>Имя:</TextBlock>
+        <TextBox Text="{Binding Employee.Name}" />
+
+        <TextBlock>Тип оплаты:</TextBlock>
+        <ComboBox ItemsSource="{Binding PaymentTypes}"
+                  SelectedItem="{Binding Employee.PaymentType}"/>
+
+        <TextBlock>Ставка:</TextBlock>
+        <TextBox Text="{Binding Employee.Payment}" />
+
+        <StackPanel Visibility="{Binding HoursVisibility}">
+            <TextBlock>Количество часов:</TextBlock>
+            <TextBox Text="{Binding Employee.Hours}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
